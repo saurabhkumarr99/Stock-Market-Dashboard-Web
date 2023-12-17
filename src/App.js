@@ -8,6 +8,8 @@ import ContactUs from './allComponents/ContactUs';
 import AboutUs from './allComponents/AboutUs';
 import Register from './allComponents/Register';
 import MarketPulse from './allComponents/MarketPulse';
+import RealTimeStockData from './allComponents/RealTimeStockData';
+import MyDashboard from './allComponents/MyDashboard'
 import './App.css';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/marketPulse" element={<MarketPulse />} />
+          <Route path="/realtime" element={<RealTimeStockData />} />
+          <Route path="/dashboard" element={<MyDashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />

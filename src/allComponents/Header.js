@@ -37,6 +37,9 @@ function Header() {
                   <Link className="nav-link" to="/marketPulse"> Market Pulse</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard"> My Dashboard</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/aboutus">About Us</Link>
                 </li>
                 <li className="nav-item">

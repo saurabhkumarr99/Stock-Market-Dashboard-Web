@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const { login } = useAuth();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('Admin');
+  const [password, setPassword] = useState('123');
   const navigate = useNavigate();
 
   const handleLogin = () => {
