@@ -10,26 +10,30 @@ import Register from './allComponents/Register';
 import MarketPulse from './allComponents/MarketPulse';
 import RealTimeStockData from './allComponents/RealTimeStockData';
 import MyDashboard from './allComponents/MyDashboard'
+import { Provider } from 'react-redux';
+import store from './reduxComponents/store';
 import './App.css';
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter >
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/marketPulse" element={<MarketPulse />} />
-          <Route path="/realtime" element={<RealTimeStockData />} />
-          <Route path="/dashboard" element={<MyDashboard />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <Provider store={store}>
+      <AuthProvider>
+        <BrowserRouter >
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/marketPulse" element={<MarketPulse />} />
+            <Route path="/realtime" element={<RealTimeStockData />} />
+            <Route path="/dashboard" element={<MyDashboard />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </Provider>
   );
 }
 

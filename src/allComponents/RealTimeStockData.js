@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button } from 'antd';
-import MyDashboard from './MyDashboard';
+import { useSelector, useDispatch } from 'react-redux';
+import { setStockData } from '../reduxComponents/stockDataActions';
+import { addToFavorites, removeFromFavorites } from '../reduxComponents/favoritesActions';
 
 const RealTimeStockData = () => {
-
-    const [stockData, setStockData] = useState([]);
+    const dispatch = useDispatch();
+    const stockData = useSelector((state) => state.stockData) || [];
+    const favorites = useSelector((state) => state.favorites) || [];
+    const [buttonText, setButtonText] = useState({});
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 });
-    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const API_KEY = 'sk_466b1325bcd045ea83cd96c4e0cb94de';
-
         const symbols = [
-            'AAPL', 'AMZN', 'GOOGL', 'MSFT', 'FB', 'TSLA', 'NVDA', 'JNJ', 'JPM', 'V', // Top 10
-            'WMT', 'DIS', 'PFE', 'NFLX', 'KO', 'BAC', 'ADBE', 'PYPL', 'MCD', 'HD', // 11-20
-            // 'IBM', 'CRM', 'ABT', 'VZ', 'GE', 'XOM', 'CSCO', 'T', 'PG', 'MA' // 21-30
+            'AAPL', 'AMZN', 'GOOGL', 'MSFT', 'FB', 'TSLA', 'NVDA', 'JNJ', 'JPM', 'V',
+            'WMT', 'DIS', 'PFE', 'NFLX', 'KO', 'BAC', 'ADBE', 'PYPL', 'MCD', 'HD',
         ];
 
         const fetchStockData = async () => {
@@ -25,22 +26,39 @@ const RealTimeStockData = () => {
                 );
 
                 const responses = await Promise.all(requests);
-                const data = responses.map(response => response.data);
+                // const data = responses.map(response => response.data);
+                const data = responses.map(response => ({
+                    companyName: response.data.companyName,
+                    symbol: response.data.symbol,
+                    delayedPrice: response.data.delayedPrice,
+                    high: response.data.high,
+                    currency: response.data.currency,
+                    // Add more fields as needed
+                }));
 
-                setStockData(data);
+                dispatch(setStockData(data)); // Update stockData in Redux
+
+                setButtonText(
+                    data.reduce((acc, stock) => {
+                        acc[stock.symbol] = favorites.includes(stock.symbol)
+                            ? 'Remove from Favorites'
+                            : 'Add to Favorites';
+                        return acc;
+                    }, {})
+                );
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
 
         fetchStockData();
-    }, []);
+    }, [favorites, dispatch]);
 
     const handleAddToFavorites = (symbol) => {
         if (favorites.includes(symbol)) {
-            setFavorites(favorites.filter((fav) => fav !== symbol));
+            dispatch(removeFromFavorites(symbol));
         } else {
-            setFavorites([...favorites, symbol]);
+            dispatch(addToFavorites(symbol));
         }
     };
 
@@ -79,13 +97,14 @@ const RealTimeStockData = () => {
             dataIndex: 'currency',
             key: 'currency',
         },
+   
         {
             title: 'Actions',
             dataIndex: 'symbol',
             key: 'actions',
             render: (symbol) => (
                 <Button onClick={() => handleAddToFavorites(symbol)}>
-                    {favorites.includes(symbol) ? 'Remove from Favorites' : 'Add to Favorites'}
+                    {buttonText[symbol]}
                 </Button>
             ),
         },
@@ -93,12 +112,10 @@ const RealTimeStockData = () => {
 
     return (
         <div>
-          <h2>Real-Time Stock Data</h2>
-          <Table dataSource={stockData} columns={columns} />
-          <MyDashboard favorites={favorites} /> {/* Pass favorites data to MyDashboard */}
+            <h2>Real-Time Stock Data</h2>
+            <Table dataSource={stockData} columns={columns} />
         </div>
-      );
-
+    );
 };
 
 export default RealTimeStockData;

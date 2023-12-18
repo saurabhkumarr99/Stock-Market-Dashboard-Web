@@ -13,7 +13,7 @@ const MarketPulse = () => {
                 <RealTimeStockData />
 
                 {/* Components for customizable dashboard */}
-                <MyDashboard />
+                {/* <MyDashboard /> */}
 
                 {/* <InteractiveCharts /> */}
                 {/* Components for interactive charts */}
