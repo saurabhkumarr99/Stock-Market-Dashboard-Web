@@ -1,76 +1,81 @@
 import React from 'react';
+import { Typography, Row, Col, Card, Button, Space } from 'antd';
 
-function AboutUs() {
+const { Title, Text } = Typography;
+
+const AboutUs = () => {
   return (
     <div>
-      <div className="about-section bg-primary">
-        <h1>About Us Page</h1>
-        <p>Some text about who we are and what we do.</p>
-        <p>Resize the browser window to see that this page is responsive by the way.</p>
+      <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
+        <Title style={{ color: 'white', textAlign: 'center' }}>About Us Page</Title>
+        <Text style={{ color: 'white', textAlign: 'center', display: 'block' }}>
+          Some text about who we are and what we do. Resize the browser window to see that this page is responsive by the way.
+        </Text>
       </div>
 
-      <h2 style={{ textAlign: 'center' }}>Our Team</h2>
+      <Title level={2} style={{ textAlign: 'center', marginTop: '20px' }}>Our Team</Title>
 
-      <div className="row">
-        <div className="column" >
-          <div className="card">
+      <Row gutter={[16, 16]} justify="center">
+        <Col span={6}>
+          <Card>
             <img
-              src="../../images/jane.jpg"
+              src="/images/jane.jpg" // Update with your image path
               alt="Jane"
               style={{ width: '100%' }}
             />
-            <div className="container">
-              <h2>Jane Doe</h2>
-              <p className="title">CEO & Founder</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>jane@example.com</p>
-              <p>
-                <button className="button">Contact</button>
-              </p>
+            <div style={{ textAlign: 'center' }}>
+              <Title level={4}>Jane Doe</Title>
+              <Text strong>CEO & Founder</Text><br/>
+              <Text>Some text that describes me lorem ipsum ipsum lorem.</Text><br/>
+              <Text>jane@example.com</Text><br/>
+              <Space>
+                <Button type="primary">Contact</Button>
+              </Space>
             </div>
-          </div>
-        </div>
+          </Card>
+        </Col>
 
-        <div className="column">
-          <div className="card">
-            <img
-              src="../../images/mike.jpg"
-              alt="Mike"
+        <Col span={6}>
+          <Card>
+          <img
+              src="/images/mike.jpg" 
+              alt="mike"
               style={{ width: '100%' }}
             />
-            <div className="container">
-              <h2>Mike Ross</h2>
-              <p className="title">Art Director</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>mike@example.com</p>
-              <p>
-                <button className="button">Contact</button>
-              </p>
+            <div style={{ textAlign: 'center' }}>
+              <Title level={4}>Mike Ross</Title>
+              <Text strong>Art Director</Text><br/>
+              <Text>Some text that describes me lorem ipsum ipsum lorem.</Text><br/>
+              <Text>mike@example.com</Text><br/>
+              <Space>
+                <Button type="primary">Contact</Button>
+              </Space>
             </div>
-          </div>
-        </div>
+          </Card>
+        </Col>
 
-        <div className="column">
-          <div className="card">
-            <img
-              src="../../images/john.jpg"
+        <Col span={6}>
+          <Card>
+          <img
+              src="/images/john.jpg" // Update with your image path
               alt="John"
               style={{ width: '100%' }}
             />
-            <div className="container">
-              <h2>John Doe</h2>
-              <p className="title">Designer</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>john@example.com</p>
-              <p>
-                <button className="button">Contact</button>
-              </p>
+            <div style={{ textAlign: 'center' }}>
+              <Title level={4}>John Doe</Title>
+              <Text strong>Designer</Text><br/>
+              <Text>Some text that describes me lorem ipsum ipsum lorem.</Text><br/>
+              <Text>john@example.com</Text><br/>
+              <Space>
+                <Button type="primary">Contact</Button>
+              </Space>
             </div>
-          </div>
-        </div>
-      </div>
+          </Card>
+        </Col>
+      </Row>
     </div>
   );
-}
+};
 
 export default AboutUs;
+

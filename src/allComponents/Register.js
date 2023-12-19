@@ -1,98 +1,120 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Form, Input, Button, Checkbox, Typography, Image } from 'antd';
+
+const { Title } = Typography;
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    agreement: false,
-  });
+  const [form] = Form.useForm();
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
-
-    setFormData({
-      ...formData,
-      [name]: newValue,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
+  const handleSubmit = (values) => {
+    console.log('Form submitted:', values);
     // Add logic here to handle form submission
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: 'auto', paddingTop: '50px' }}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+      <div style={{ width: '30%', padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <Image
+            src="/images/ancientHistory.jpeg"
+            alt="Registration Image"
+            style={{ width: '100%', height: 'auto', borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}
+          />
+        </div>
+        <Title level={2} style={{ textAlign: 'center' }}>Register</Title>
+        <Form
+          form={form}
+          onFinish={handleSubmit}
+          initialValues={{
+            agreement: false,
+          }}
+        >
+          <Form.Item
+            label="Username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            rules={[
+              {
+                required: true,
+                message: 'Please input your username!',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
+          <Form.Item
+            label="Email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            rules={[
+              {
+                required: true,
+                type: 'email',
+                message: 'Please input a valid email address!',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
+          <Form.Item
+            label="Password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
+          <Form.Item
+            label="Confirm Password"
             name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            dependencies={['password']}
+            rules={[
+              {
+                required: true,
+                message: 'Please confirm your password!',
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject('The two passwords do not match!');
+                },
+              }),
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="agreement"
-              checked={formData.agreement}
-              onChange={handleChange}
-            />
-            I have read the <a href="/terms">agreement</a>
-          </label>
-        </div>
+          <Form.Item
+            name="agreement"
+            valuePropName="checked"
+            rules={[
+              {
+                validator: (_, value) =>
+                  value
+                    ? Promise.resolve()
+                    : Promise.reject('Please accept the agreement'),
+              },
+            ]}
+          >
+            <Checkbox>
+              I have read the <a href="/terms">agreement</a>
+            </Checkbox>
+          </Form.Item>
 
-        <div>
-          <button type="submit">Register</button>
-        </div>
-      </form>
+          <Form.Item style={{ textAlign: 'center' }}>
+            <Button type="primary" htmlType="submit">
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
 };
