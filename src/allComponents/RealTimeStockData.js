@@ -30,13 +30,14 @@ const RealTimeStockData = () => {
                 const data = responses.map(response => ({
                     companyName: response.data.companyName,
                     symbol: response.data.symbol,
-                    delayedPrice: response.data.delayedPrice,
-                    high: response.data.high,
+                    latestPrice: response.data.latestPrice,
+                    high: response.data.week52High,
                     currency: response.data.currency,
-                    // Add more fields as needed
+                    latestTime:response.data.latestTime
                 }));
 
-                dispatch(setStockData(data)); // Update stockData in Redux
+                // Update stockData in Redux
+                dispatch(setStockData(data)); 
 
                 setButtonText(
                     data.reduce((acc, stock) => {
@@ -84,8 +85,8 @@ const RealTimeStockData = () => {
         },
         {
             title: 'Current Price',
-            dataIndex: 'delayedPrice',
-            key: 'delayedPrice',
+            dataIndex: 'latestPrice',
+            key: 'latestPrice',
         },
         {
             title: 'Highest Price',

@@ -40,6 +40,12 @@ function Header() {
                   <Link className="nav-link" to="/dashboard"> My Dashboard</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/stockDataChart"> Chart1</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/favDataChart"> Chart2</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/aboutus">About Us</Link>
                 </li>
                 <li className="nav-item">

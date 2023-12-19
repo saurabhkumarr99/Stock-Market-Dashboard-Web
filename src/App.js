@@ -12,6 +12,8 @@ import RealTimeStockData from './allComponents/RealTimeStockData';
 import MyDashboard from './allComponents/MyDashboard'
 import { Provider } from 'react-redux';
 import store from './reduxComponents/store';
+import StockDataChart from './allComponents/AllStockDataChart';
+import FavoriteStockChart from './allComponents/FavoriteStockChart';
 import './App.css';
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
             <Route path="/marketPulse" element={<MarketPulse />} />
             <Route path="/realtime" element={<RealTimeStockData />} />
             <Route path="/dashboard" element={<MyDashboard />} />
+            <Route path="/stockDataChart" element={<StockDataChart />} />
+            <Route path="/favDataChart" element={<FavoriteStockChart />} />
             <Route path="/register" element={<Register />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/aboutus" element={<AboutUs />} />

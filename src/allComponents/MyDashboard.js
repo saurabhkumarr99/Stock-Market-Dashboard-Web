@@ -21,8 +21,8 @@ const MyDashboard = () => {
         },
         {
             title: 'Current Price',
-            dataIndex: 'delayedPrice',
-            key: 'delayedPrice',
+            dataIndex: 'latestPrice',
+            key: 'latestPrice',
         },
         {
             title: 'Highest Price',
