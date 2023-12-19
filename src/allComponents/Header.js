@@ -1,10 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, Dropdown } from 'antd';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
+import {
+  HomeOutlined,
+  LineChartOutlined,
+  DashboardOutlined,
+  InfoCircleOutlined,
+  ContactsOutlined,
+  LoginOutlined,
+  UserAddOutlined,
+  LogoutOutlined,
+} from '@ant-design/icons';
 
-function Header() {
-
+const Header = () => {
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -13,70 +23,108 @@ function Header() {
     navigate('/');
   };
 
+  const chartMenu = (
+    <Menu>
+      <Menu.Item>
+        <Link to="/stockDataChart">Chart 1</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/favDataChart">Chart 2</Link>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <div data-testid="header-component">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <Menu theme="dark" mode="horizontal">
+        <Menu.Item style={{ marginRight: 'auto' }}>
+          <Link to="/">
+            <span>
+              <strong>Stock Market Pulse</strong>
+            </span>
+          </Link>
+        </Menu.Item>
 
-        <a className="navbar-brand" href="#">Stock Market Pulse</a>
-
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-
-            {isAuthenticated ? (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/marketPulse"> Market Pulse</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dashboard"> My Dashboard</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/stockDataChart"> Chart1</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/favDataChart"> Chart2</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/aboutus">About Us</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/ContactUs">Contact Us</Link>
-                </li>
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/aboutus">About Us</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/ContactUs">Contact Us</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/register">Register </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">Login </Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
-
-      </nav>
+        {isAuthenticated ? (
+          <>
+            <Menu.Item>
+              <Link to="/">
+                <HomeOutlined />
+                Home
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/marketPulse">
+                <LineChartOutlined />
+                Market Pulse
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/dashboard">
+                <DashboardOutlined />
+                My Dashboard
+              </Link>
+            </Menu.Item>
+            <Dropdown overlay={chartMenu}>
+              <Menu.Item>
+                <LineChartOutlined />
+                Charts
+              </Menu.Item>
+            </Dropdown>
+            <Menu.Item>
+              <Link to="/aboutus">
+                <InfoCircleOutlined />
+                About Us
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/ContactUs">
+                <ContactsOutlined />
+                Contact Us
+              </Link>
+            </Menu.Item>
+            <Menu.Item onClick={handleLogout}>
+              <LogoutOutlined />
+              Logout
+            </Menu.Item>
+          </>
+        ) : (
+          <>
+            <Menu.Item>
+              <Link to="/">
+                <HomeOutlined />
+                Home
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/register">
+                <UserAddOutlined />
+                Register
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/aboutus">
+                <InfoCircleOutlined />
+                About Us
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/ContactUs">
+                <ContactsOutlined />
+                Contact Us
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/login">
+                <LoginOutlined />
+                Login
+              </Link>
+            </Menu.Item>
+          </>
+        )}
+      </Menu>
     </div>
   );
-}
+};
 
 export default Header;

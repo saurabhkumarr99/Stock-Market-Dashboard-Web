@@ -20,6 +20,15 @@ const StockDataChart = () => {
     const latestPrices = stockData.map(item => item.latestPrice);
     const highestPrices = stockData.map(item => item.high);
 
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+    );
+    
     // Chart data
     const chartData = {
         labels: companyNames,
