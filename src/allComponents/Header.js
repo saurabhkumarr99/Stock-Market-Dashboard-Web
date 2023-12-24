@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Switch } from 'antd';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -17,11 +17,17 @@ import {
 const Header = () => {
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const [theme, setTheme] = useState('dark'); // State to manage theme
+
+  const handleThemeToggle = (checked) => {
+    setTheme(checked ? 'dark' : 'light'); // Toggle between 'dark' and 'light' themes
+  };
 
   const handleLogout = () => {
     logout();
     navigate('/');
   };
+
 
   const chartMenu = (
     <Menu>
@@ -36,7 +42,8 @@ const Header = () => {
 
   return (
     <div data-testid="header-component">
-      <Menu theme="dark" mode="horizontal">
+      {/* Menu content */}
+      <Menu theme={theme} mode="horizontal">
         <Menu.Item style={{ marginRight: 'auto' }}>
           <Link to="/">
             <span>
@@ -87,6 +94,16 @@ const Header = () => {
               <LogoutOutlined />
               Logout
             </Menu.Item>
+
+            {/* Theme toggle button */}
+            <Menu.Item style={{ marginLeft: '10px', marginTop: '5px' }}>
+              <Switch
+                checked={theme === 'dark'}
+                onChange={handleThemeToggle}
+                checkedChildren="Dark"
+                unCheckedChildren="Light"
+              />
+            </Menu.Item>
           </>
         ) : (
           <>
@@ -119,6 +136,15 @@ const Header = () => {
                 <LoginOutlined />
                 Login
               </Link>
+            </Menu.Item>
+            {/* Theme toggle button */}
+            <Menu.Item style={{ marginLeft: '10px', marginTop: '5px' }}>
+              <Switch
+                checked={theme === 'dark'}
+                onChange={handleThemeToggle}
+                checkedChildren="Dark"
+                unCheckedChildren="Light"
+              />
             </Menu.Item>
           </>
         )}
