@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Input, Button } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 function Login() {
   const { login } = useAuth();
@@ -18,7 +20,7 @@ function Login() {
   };
 
   return (
-    <section className="vh-100">
+    <section className="vh-100 ant-custom-container">
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-6 col-xl-5">
@@ -30,48 +32,38 @@ function Login() {
           </div>
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form>
-     
-              <div className="form-outline mb-4">
-                <input
+              <div className="form-outline mb-4 ant-form-item" >
+                <Input
                   type="text"
                   id="username"
-                  className="form-control form-control-lg"
                   placeholder="Enter your username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  addonBefore={<UserOutlined className="site-form-item-icon" /> }
+                  
                 />
-                <label className="form-label" htmlFor="form3Example3">
-                  Username
-                </label>
               </div>
 
-              <div className="form-outline mb-3">
-                <input
+              <div className="form-outline mb-3 ant-form-item">
+                <Input
                   type="password"
                   id="password"
-                  className="form-control form-control-lg"
                   placeholder="Enter password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  addonBefore={<LockOutlined className="site-form-item-icon" />}
                 />
-                <label className="form-label" htmlFor="form3Example4">
-                  Password
-                </label>
               </div>
 
               <div className="text-center text-lg-start mt-4 pt-2">
-                <button
+                <Button
                   type="button"
                   id="login-button"
-                  className="btn btn-primary btn-lg"
-                  style={{
-                    paddingLeft: '2.5rem',
-                    paddingRight: '2.5rem',
-                  }}
+                  className="btn btn-primary btn-lg ant-btn ant-btn-lg"
                   onClick={handleLogin}
                 >
                   Login
-                </button>
+                </Button>
               </div>
             </form>
           </div>

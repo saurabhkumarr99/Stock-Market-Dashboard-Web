@@ -26,10 +26,10 @@ const Header = () => {
   const chartMenu = (
     <Menu>
       <Menu.Item>
-        <Link to="/stockDataChart">Chart 1</Link>
+        <Link to="/stockDataChart">All Stocks</Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to="/favDataChart">Chart 2</Link>
+        <Link to="/favDataChart">Favourite Stock</Link>
       </Menu.Item>
     </Menu>
   );
