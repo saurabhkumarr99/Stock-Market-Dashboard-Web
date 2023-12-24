@@ -28,7 +28,7 @@ const StockDataChart = () => {
         Tooltip,
         Legend
     );
-    
+
     // Chart data
     const chartData = {
         labels: companyNames,
@@ -85,10 +85,15 @@ const StockDataChart = () => {
         },
     };
 
+
     return (
-        <div style={{ width: '90%' }}>
-            <h2>Bar Chart: Company Prices</h2>
-            <Bar data={chartData} options={options} />
+        <div>
+            <div style={{ backgroundColor: '#1890ff', padding: '20px 0', textAlign: 'center', marginBottom: '20px' }}>
+                <h2 style={{ color: 'white' }}>Bar Chart : Company Prices</h2>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh', margin: '20px' }}>
+                <Bar data={chartData} options={options} />
+            </div>
         </div>
     );
 };

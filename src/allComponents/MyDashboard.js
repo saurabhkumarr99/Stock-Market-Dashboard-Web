@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table, Button } from 'antd'; // Import Table and Button components from Ant Design
 import { removeFromFavorites } from '../reduxComponents/favoritesActions'; // Import the action creator
+import { Typography } from 'antd';
+
+
+const { Title, Text } = Typography;
 
 const MyDashboard = () => {
     const dispatch = useDispatch();
@@ -54,7 +58,9 @@ const MyDashboard = () => {
 
     return (
         <div>
-            <h2>My Dashboard</h2>
+            <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
+                <Title style={{ color: 'white', textAlign: 'center' }}>My Dashboard</Title>
+            </div>
             <Table dataSource={favoriteStocks} columns={columns} />
         </div>
     );

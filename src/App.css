@@ -103,4 +103,66 @@ html {
   margin: 8px;
 }
 
+/* app.css */
+.container {
+  position: relative;
+  height: 100vh; /* Changed from min-height to height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../public/images/Stockmarket.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff; 
+  text-align: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  
+}
+
+/* .container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../public/images/Stockmarket.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff; 
+  text-align: center;
+  font-family: Arial, sans-serif;
+} */
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.paragraph {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.list {
+  font-size: 1.2rem;
+  text-align: center;
+}
 

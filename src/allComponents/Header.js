@@ -40,12 +40,20 @@ const Header = () => {
     </Menu>
   );
 
+  // Remove the underline from the menu items
+  const menuStyle = {
+    borderBottom: 'none', 
+    link: {
+      textDecoration: 'none', // Remove underline from hyperlinks
+    },
+  }
+
   return (
     <div data-testid="header-component">
       {/* Menu content */}
-      <Menu theme={theme} mode="horizontal">
+      <Menu theme={theme} mode="horizontal" style={menuStyle}>
         <Menu.Item style={{ marginRight: 'auto' }}>
-          <Link to="/">
+          <Link to="/" style={menuStyle.link}>
             <span>
               <strong>Stock Market Pulse</strong>
             </span>
@@ -55,19 +63,19 @@ const Header = () => {
         {isAuthenticated ? (
           <>
             <Menu.Item>
-              <Link to="/">
+              <Link to="/" style={menuStyle.link}>
                 <HomeOutlined />
                 Home
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/marketPulse">
+              <Link to="/marketPulse" style={menuStyle.link}>
                 <LineChartOutlined />
                 Market Pulse
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/dashboard">
+              <Link to="/dashboard" style={menuStyle.link}>
                 <DashboardOutlined />
                 My Dashboard
               </Link>
@@ -79,13 +87,13 @@ const Header = () => {
               </Menu.Item>
             </Dropdown>
             <Menu.Item>
-              <Link to="/aboutus">
+              <Link to="/aboutus" style={menuStyle.link}>
                 <InfoCircleOutlined />
                 About Us
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/ContactUs">
+              <Link to="/ContactUs" style={menuStyle.link}>
                 <ContactsOutlined />
                 Contact Us
               </Link>
@@ -108,31 +116,31 @@ const Header = () => {
         ) : (
           <>
             <Menu.Item>
-              <Link to="/">
+              <Link to="/" style={menuStyle.link}>
                 <HomeOutlined />
                 Home
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/register">
+              <Link to="/register" style={menuStyle.link}>
                 <UserAddOutlined />
                 Register
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/aboutus">
+              <Link to="/aboutus" style={menuStyle.link}>
                 <InfoCircleOutlined />
                 About Us
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/ContactUs">
+              <Link to="/ContactUs" style={menuStyle.link}>
                 <ContactsOutlined />
                 Contact Us
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/login">
+              <Link to="/login" style={menuStyle.link}>
                 <LoginOutlined />
                 Login
               </Link>

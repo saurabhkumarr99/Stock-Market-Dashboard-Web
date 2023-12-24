@@ -14,28 +14,31 @@ import { Provider } from 'react-redux';
 import store from './reduxComponents/store';
 import StockDataChart from './allComponents/AllStockDataChart';
 import FavoriteStockChart from './allComponents/FavoriteStockChart';
+import { ThemeProvider } from './allComponents/ThemeContext';
 import './App.css';
 
 function App() {
   return (
     <Provider store={store}>
       <AuthProvider>
-        <BrowserRouter >
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/marketPulse" element={<MarketPulse />} />
-            <Route path="/realtime" element={<RealTimeStockData />} />
-            <Route path="/dashboard" element={<MyDashboard />} />
-            <Route path="/stockDataChart" element={<StockDataChart />} />
-            <Route path="/favDataChart" element={<FavoriteStockChart />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-          </Routes>
-        </BrowserRouter>
+        <ThemeProvider>
+          <BrowserRouter >
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/marketPulse" element={<MarketPulse />} />
+              <Route path="/realtime" element={<RealTimeStockData />} />
+              <Route path="/dashboard" element={<MyDashboard />} />
+              <Route path="/stockDataChart" element={<StockDataChart />} />
+              <Route path="/favDataChart" element={<FavoriteStockChart />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/ContactUs" element={<ContactUs />} />
+              <Route path="/aboutus" element={<AboutUs />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
       </AuthProvider>
     </Provider>
   );

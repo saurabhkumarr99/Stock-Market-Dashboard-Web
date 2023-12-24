@@ -6,7 +6,7 @@ import MyDashboard from './MyDashboard';
 const MarketPulse = () => {
     return (
         <div>
-            <h1>Welcome to Your Stock Market Dashboard!</h1>
+            
             <div>
 
                 {/* Components for real-time stock data */}

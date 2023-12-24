@@ -1,11 +1,13 @@
 import React from 'react';
 import { Typography, Row, Col, Card, Button, Space } from 'antd';
 
+
 const { Title, Text } = Typography;
 
 const AboutUs = () => {
   return (
     <div>
+      
       <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
         <Title style={{ color: 'white', textAlign: 'center' }}>About Us Page</Title>
         <Text style={{ color: 'white', textAlign: 'center', display: 'block' }}>
