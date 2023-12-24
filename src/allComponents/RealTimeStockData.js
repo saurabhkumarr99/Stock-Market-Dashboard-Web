@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button, Typography } from 'antd';
+import '../App.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setStockData } from '../reduxComponents/stockDataActions';
@@ -9,6 +10,7 @@ import { addToFavorites, removeFromFavorites } from '../reduxComponents/favorite
 const { Title, Text } = Typography;
 
 const RealTimeStockData = () => {
+
     const dispatch = useDispatch();
     const stockData = useSelector((state) => state.stockData) || [];
     const favorites = useSelector((state) => state.favorites) || [];
@@ -23,6 +25,10 @@ const RealTimeStockData = () => {
 
     const handleSort = (order) => {
         setSortOrder(order);
+    };
+
+    const getRowClassName = (record, index) => {
+        return index % 2 === 0 ? 'table-row-white' : 'table-row-black';
     };
 
     // useEffect(() => {
@@ -109,7 +115,7 @@ const RealTimeStockData = () => {
             }, {})
         );
     }, [favorites, dispatch]);
-    
+
 
     const handleAddToFavorites = (symbol) => {
         if (favorites.includes(symbol)) {
@@ -188,16 +194,30 @@ const RealTimeStockData = () => {
                 <Title style={{ color: 'white', textAlign: 'center' }}> Real-Time Stock Data</Title>
             </div>
 
-            <div>
-                <input
-                    placeholder="Search by company name or symbol"
-                    onChange={(e) => handleSearch(e.target.value)}
-                    value={searchText}
-                />
-                <Button onClick={() => handleSort('asc')}>Sort Low to High</Button>
-                <Button onClick={() => handleSort('desc')}>Sort High to Low</Button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px', margin: '20px' }}>
+                {/* Search input */}
+                <div>
+                    <input
+                        placeholder="Search by company name or symbol"
+                        onChange={(e) => handleSearch(e.target.value)}
+                        value={searchText}
+                    />
+                </div>
+
+                {/* Sort buttons */}
+                <div>
+                    <Button onClick={() => handleSort('asc')}>Sort Low to High</Button>
+                    <Button onClick={() => handleSort('desc')}>Sort High to Low</Button>
+                </div>
             </div>
-            <Table dataSource={filteredAndSortedStocks} columns={columns} />
+            <Table
+                dataSource={filteredAndSortedStocks}
+                columns={columns}
+                rowClassName={getRowClassName}
+                pagination={{
+                    ...pagination,
+                    onChange: (page) => setPagination({ ...pagination, current: page }),
+                }} />
         </div>
     );
 };

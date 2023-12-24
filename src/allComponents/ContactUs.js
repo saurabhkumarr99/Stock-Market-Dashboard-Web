@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Typography } from 'antd';
+import { Form, Input, Button, Typography, Row, Col  } from 'antd';
 
 
 const { Title } = Typography;
@@ -56,11 +56,13 @@ const ContactUs = () => {
                 </Form.Item>
               </div>
             </div>
-            <div className="text-center text-md-left" style={{ margin: '20px 0' }}>
-              <Button type="primary" onClick={handleFormSubmit}>
-                Send
-              </Button>
-            </div>
+            <Row justify="center">
+              <Col>
+                <Button type="primary" onClick={handleFormSubmit}>
+                  Send
+                </Button>
+              </Col>
+            </Row>
             <div className="status"></div>
           </Form>
         </div>

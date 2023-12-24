@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table, Button } from 'antd'; // Import Table and Button components from Ant Design
 import { removeFromFavorites } from '../reduxComponents/favoritesActions'; // Import the action creator
 import { Typography } from 'antd';
-
+import '../App.css';
 
 const { Title, Text } = Typography;
 
 const MyDashboard = () => {
+
     const dispatch = useDispatch();
     const favorites = useSelector((state) => state.favorites) || [];
     const stockData = useSelector((state) => state.stockData) || [];
+    const [pagination, setPagination] = useState({ current: 1, pageSize: 10 });
+
+    const getRowClassName = (record, index) => {
+        return index % 2 === 0 ? 'table-row-white' : 'table-row-black';
+    };
 
     const columns = [
+        {
+            title: 'Sr. No',
+            dataIndex: 'symbol',
+            key: 'symbol',
+            render: (_, __, index) => {
+                return (pagination.current - 1) * pagination.pageSize + index + 1;
+            },
+        },
         {
             title: 'Company Name',
             dataIndex: 'companyName',
@@ -61,7 +75,14 @@ const MyDashboard = () => {
             <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
                 <Title style={{ color: 'white', textAlign: 'center' }}>My Dashboard</Title>
             </div>
-            <Table dataSource={favoriteStocks} columns={columns} />
+            <Table
+                dataSource={favoriteStocks}
+                columns={columns}
+                rowClassName={getRowClassName}
+                pagination={{
+                    ...pagination,
+                    onChange: (page) => setPagination({ ...pagination, current: page }),
+                }} />
         </div>
     );
 };

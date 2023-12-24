@@ -120,19 +120,6 @@ html {
   
 }
 
-/* .container {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url('../public/images/Stockmarket.png'); 
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff; 
-  text-align: center;
-  font-family: Arial, sans-serif;
-} */
 
 .overlay {
   position: absolute;
@@ -166,3 +153,11 @@ html {
   text-align: center;
 }
 
+/* CSS file or global styles */
+.table-row-white {
+  background-color: #ffffff; /* White background color for even rows */
+}
+
+.table-row-black {
+  background-color: #f0f0f0; /* Light gray background color for odd rows */
+}

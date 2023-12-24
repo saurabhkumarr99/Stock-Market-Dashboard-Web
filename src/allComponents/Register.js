@@ -18,15 +18,17 @@ const Register = () => {
         <Title style={{ color: 'white', textAlign: 'center' }}>Register yourself</Title>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+
         <div style={{ width: '30%', padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+
+          <div style={{ textAlign: 'center', marginBottom: '20px',width:'100' }}>
             <Image
               src="/images/ancientHistory.jpeg"
               alt="Registration Image"
               style={{ width: '100%', height: 'auto', borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}
             />
           </div>
-          {/* <Title level={2} style={{ textAlign: 'center' }}>Register</Title> */}
+
           <Form
             form={form}
             onFinish={handleSubmit}
