@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Stock Market Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Welcome to the Stock Market Dashboard! This application provides users with real-time stock market data, analysis tools, and personalized features to track and manage stock investments. This README serves as a guide to understanding the Stock Market Dashboard app and its functionalities.
 
-In the project directory, you can run:
+## Languge : React 
 
-### `npm start`
+## Project Links
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- GitHub: [Stock Market Dashboard -Web Version (React)](https://github.com/saurabhkumarr99/Stock-Market-Dashboard-Web)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- GitHub: [Stock Market Dashboard -App Version (React Native)](https://github.com/saurabhkumarr99/Stock-Market-Dashboard-App)
 
-### `npm test`
+- Live: [Stock Market Dashboard -Web Version (React)](https://saurabhkumarr99.github.io/Host-Stock-Market-Web/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Live Expo Go Link: [Stock Market Dashboard -App Version (React Native)](exp://u.expo.dev/update/12b2b67f-f49c-4b62-bd0e-ad5407f22dd1)
 
-### `npm run build`
+- Live Expo Go QR code: Scan the following QR code with an Android device to open it in Expo Go.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">
+  <img src="./ScreenShots/StockMarketQR.png" alt="Screenshot 1" width="300" />
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Table of Contents
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Components Structure](#components-structure)
+- [Screenshots](#screenshots)
+- [Author](#author)
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Real-time Stock Data:** Access and visualize real-time stock market data from various sources.
+- **Customizable Dashboard:** Create a personalized dashboard with preferred stock categories, sectors, and performance metrics.
+- **Interactive Charts:** Visualize stock data through interactive charts and graphs for in-depth analysis.
+- **Favorites and Watchlists:** Manage favorite stocks and create watchlists for monitoring.
+- **User Settings:** Customize settings for a tailored stock market experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js and npm (Node Package Manager) installed on your computer.
+- Node.js: [Download and Install Node.js](https://nodejs.org/)
 
-## Learn More
+Follow these steps to run the Blog App locally:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Unzip the Stock Market Dashboard App:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Navigate to the project directory:**
 
-### Code Splitting
+   ```bash
+   cd StockMarketDashboardWeb
+   ``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Install Dependencies:**
 
-### Analyzing the Bundle Size
+   ```bash
+   npm install
+   ``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+3. **Run:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ - `Start Project`
+   ```bash
+      npm start
+   ``` 
 
-### Advanced Configuration
+ - `Test Project`
+   ```bash
+      npm test
+   ``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ - `Test Coverage`
+   ```bash
+      npm run coverage
+   ``` 
 
-### Deployment
+- `Selenium Testing`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   Go to SeleniumTest folder and run -
+   ```bash
+      node LoginTest
+   ``` 
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Usage
+
+- **Explore Stock Data**: Use the app to explore stock categories, sectors, and real-time data visualization.
+- **Personalize Dashboard**:Customize your dashboard with preferred stock selections, watchlists, and charts.
+
+## Code Structure
+
+The project follows a structured directory layout for better organization:
+
+- **allComponents/**
+- **ScreenShots/**
+- **reduxComponents/**
+- **App.js**
+- **README.md**
+
+## Screenshots
+
+<p align="center">
+   <img src="./ScreenShots/1-Home.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/2-AboutUs.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/3-ContactUs.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/4.a-Register.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/4.b-Register.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/4.c-Register.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/5-Login.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/6-AllStock.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/7-FavStock.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/8-Search.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/9.a-AllChart.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/9.b-AllChart.png" alt="Screenshot 1" width="300" />
+   <img src="./ScreenShots/10-FavChart.png" alt="Screenshot 1" width="300" />   
+</p>
+
+
+- `Unit Test`
+<p align="center">
+  <img src="./ScreenShots/1.png" alt="UnitTest" width="300" />
+</p
+
+- `Coverage Test`
+<p align="center">
+  <img src="./ScreenShots/2.png" alt="UnitTest" width="300" />
+  <img src="./ScreenShots/3.png" alt="UnitTest" width="300" />
+</p
+
+
+## Author
+
+- SAURABH KUMAR RAI
+
