@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox, Typography, Image } from 'antd';
+import { Form, Input, Button, Checkbox, Typography, Image, message } from 'antd';
 
 
 const { Title } = Typography;
@@ -8,8 +8,9 @@ const Register = () => {
   const [form] = Form.useForm();
 
   const handleSubmit = (values) => {
-    console.log('Form submitted:', values);
-    // Add logic here to handle form submission
+    message.success('Registration successful!');
+    // Clear form fields
+    form.resetFields();
   };
 
   return (
@@ -21,9 +22,9 @@ const Register = () => {
 
         <div style={{ width: '30%', padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
 
-          <div style={{ textAlign: 'center', marginBottom: '20px',width:'100' }}>
+          <div style={{ textAlign: 'center', marginBottom: '20px', width: '100' }}>
             <Image
-              src="/images/ancientHistory.jpeg"
+              src="/images/RegImg.png"
               alt="Registration Image"
               style={{ width: '100%', height: 'auto', borderTopLeftRadius: '5px', borderTopRightRadius: '5px' }}
             />

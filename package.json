@@ -62,8 +62,12 @@
       "AllStockDataChart.js",
       "MyDashboard.js",
       "RealTimeStockData.js",
-      "FavoriteStockChart.js"
+      "FavoriteStockChart.js",
+      "LoginTest.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/**/*.d.ts"
     ]
-    
   }
 }
