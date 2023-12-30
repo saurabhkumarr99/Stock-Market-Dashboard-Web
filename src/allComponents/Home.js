@@ -6,10 +6,10 @@ import '../App.css';
 const { Title, Paragraph } = Typography;
 
 const Home = () => {
-  const theme = 'dark'; // Replace this with your theme logic or context usage
+  const theme = 'dark'; 
 
   return (
-    <div>
+    <div data-testid="home-component">
       <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
         <Title style={{ color: 'white', textAlign: 'center' }}>Welcome to the Stock Market Dashboard!</Title>
       </div>
@@ -18,7 +18,7 @@ const Home = () => {
           <div className="text">
 
             <Typography>
-             {/* / <Title className="title">Welcome to the Stock Market Dashboard!</Title> */}
+           
               <Paragraph className="paragraph">
                 The Stock Market Dashboard is an interactive platform designed to provide users with real-time
                 stock market data and powerful analysis tools.

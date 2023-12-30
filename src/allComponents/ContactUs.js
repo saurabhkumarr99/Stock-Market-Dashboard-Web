@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Typography, Row, Col  } from 'antd';
-
+import { Form, Input, Button, Typography, Row, Col } from 'antd';
 
 const { Title } = Typography;
 
@@ -29,30 +28,31 @@ const ContactUs = () => {
           <Form id="contact-form" name="contact-form" action="mail.php" method="POST">
             <div className="row">
               <div className="col-md-6">
-                <Form.Item label="Your name">
+                <Form.Item label="Your name" htmlFor="name">
                   <Input
+                    id="name"
                     value={data}
                     onChange={(e) => setData(e.target.value)}
                   />
                 </Form.Item>
               </div>
               <div className="col-md-6">
-                <Form.Item label="Your email">
-                  <Input />
+                <Form.Item label="Your email" htmlFor="email">
+                  <Input id="email" />
                 </Form.Item>
               </div>
             </div>
             <div className="row">
               <div className="col-md-12">
-                <Form.Item label="Subject">
-                  <Input />
+                <Form.Item label="Subject" htmlFor="subject">
+                  <Input id="subject" />
                 </Form.Item>
               </div>
             </div>
             <div className="row">
               <div className="col-md-12">
-                <Form.Item label="Your message">
-                  <Input.TextArea rows={2} />
+                <Form.Item label="Your message" htmlFor="message">
+                  <Input.TextArea id="message" rows={2} />
                 </Form.Item>
               </div>
             </div>
@@ -68,13 +68,16 @@ const ContactUs = () => {
         </div>
         <div className="col-md-3 text-center">
           <ul className="list-unstyled mb-0">
-            <li><i className="fas fa-map-marker-alt fa-2x"></i>
+            <li>
+              <i className="fas fa-map-marker-alt fa-2x"></i>
               <p>San Francisco, CA 94126, USA</p>
             </li>
-            <li><i className="fas fa-phone mt-4 fa-2x"></i>
+            <li>
+              <i className="fas fa-phone mt-4 fa-2x"></i>
               <p>+ 01 234 567 89</p>
             </li>
-            <li><i className="fas fa-envelope mt-4 fa-2x"></i>
+            <li>
+              <i className="fas fa-envelope mt-4 fa-2x"></i>
               <p>contact@mdbootstrap.com</p>
             </li>
           </ul>
@@ -83,6 +86,7 @@ const ContactUs = () => {
       <h2>{response}</h2>
     </div>
   );
-}
+};
 
 export default ContactUs;
+

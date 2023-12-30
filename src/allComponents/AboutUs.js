@@ -9,7 +9,7 @@ const AboutUs = () => {
     <div>
       
       <div style={{ backgroundColor: '#1890ff', padding: '20px 0' }}>
-        <Title style={{ color: 'white', textAlign: 'center' }}>About Us Page</Title>
+        <Title style={{ color: 'white', textAlign: 'center' }}>About Us</Title>
         <Text style={{ color: 'white', textAlign: 'center', display: 'block' }}>
           Some text about who we are and what we do. Resize the browser window to see that this page is responsive by the way.
         </Text>

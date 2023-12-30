@@ -57,7 +57,12 @@ const MyDashboard = () => {
             dataIndex: 'symbol',
             key: 'actions',
             render: (symbol) => (
-                <Button onClick={() => handleRemoveFromFavorites(symbol)}>
+                <Button
+                    onClick={() => handleRemoveFromFavorites(symbol)}
+                    style={{
+                        color: 'red',
+                    }}
+                >
                     Remove from Favorites
                 </Button>
             ),
