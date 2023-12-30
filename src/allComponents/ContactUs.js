@@ -83,7 +83,7 @@ const ContactUs = () => {
           </ul>
         </div>
       </div>
-      <h2>{response}</h2>
+      <h2 style={{ textAlign: 'center', color: 'green', marginTop: '20px' }}>{response}</h2>
     </div>
   );
 };

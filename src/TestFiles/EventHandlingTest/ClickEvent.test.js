@@ -7,5 +7,5 @@ test('onchange user name on btn testing', () => {
 
   const btn = screen.getByRole('button');
   fireEvent.click(btn);
-  expect(screen.getByText("Soon you recieve response")).toBeInTheDocument();
+  expect(screen.getByText("Soon you will receive a response")).toBeInTheDocument();
 });
