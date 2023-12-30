@@ -4,7 +4,7 @@
 
 Welcome to the Stock Market Dashboard! This application provides users with real-time stock market data, analysis tools, and personalized features to track and manage stock investments. This README serves as a guide to understanding the Stock Market Dashboard app and its functionalities.
 
-## Languge : React 
+## Language : React 
 
 ## Project Links
 
@@ -14,7 +14,7 @@ Welcome to the Stock Market Dashboard! This application provides users with real
 
 - Live: [Stock Market Dashboard -Web Version (React)](https://saurabhkumarr99.github.io/Host-Stock-Market-Web/)
 
-- Live Expo Go Link: [Stock Market Dashboard -App Version (React Native)](exp://u.expo.dev/update/12b2b67f-f49c-4b62-bd0e-ad5407f22dd1)
+- Live Expo Go Link: [Stock Market Dashboard -App Version (React Native)] (exp://u.expo.dev/update/12b2b67f-f49c-4b62-bd0e-ad5407f22dd1)
 
 - Live Expo Go QR code: Scan the following QR code with an Android device to open it in Expo Go.
 
